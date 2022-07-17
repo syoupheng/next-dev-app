@@ -34,7 +34,7 @@ const EditPostForm = ({ post, postRef, preview }) => {
         console.log(msg);
       }
       setRevalidating(false);
-      router.push(`/${post.username}/${post.slug}`);
+      // router.push(`/${post.username}/${post.slug}`);
     } catch (err) {
       toast.error('Something went wrong...');
       console.error(err);
