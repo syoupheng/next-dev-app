@@ -37,16 +37,15 @@ const CreatePostForm = () => {
 
     try {
       await setDoc(ref, data);
-      const res = await fetch(`/api/revalidate-home-isr?secret=${process.env.NEXT_PUBLIC_MY_SECRET_TOKEN}`);
-      const msg = await res.json();
-      console.log('isr revalidation : ', msg);
+      toast.success('Post created!');
+      router.push(`/admin/${slug}`);
+      // const res = await fetch(`/api/revalidate-home-isr?secret=${process.env.NEXT_PUBLIC_MY_SECRET_TOKEN}`);
+      // const msg = await res.json();
+      // console.log('isr revalidation : ', msg);
     } catch (err) {
       console.error(err);
+      toast.error(`Something went wrong...`);
     }
-
-    toast.success('Post created!');
-
-    router.push(`/admin/${slug}`);
   };
 
   return (

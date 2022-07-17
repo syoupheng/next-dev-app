@@ -2,7 +2,6 @@ import { useForm } from 'react-hook-form';
 import { updateDoc, serverTimestamp } from 'firebase/firestore';
 import toast from 'react-hot-toast';
 import ReactMarkdown from 'react-markdown';
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -23,10 +22,18 @@ const EditPostForm = ({ post, postRef, preview }) => {
       });
       toast.success('Post updated successfully!');
       setRevalidating(true);
-      const res = await fetch(`/api/revalidate-post/${post.username}/${post.slug}?secret=${process.env.NEXT_PUBLIC_MY_SECRET_TOKEN}`);
-      const msg = await res.json();
-      setRevalidating(false)
-      console.log(msg);
+      if (!post.published && published) {
+        await Promise.all([
+          fetch(`/api/revalidate-home-isr?secret=${process.env.NEXT_PUBLIC_MY_SECRET_TOKEN}`),
+          fetch(`/api/revalidate-post/${post.username}/${post.slug}?secret=${process.env.NEXT_PUBLIC_MY_SECRET_TOKEN}`)
+        ]);
+        console.log("revalidated twice !");
+      } else {
+        const res = await fetch(`/api/revalidate-post/${post.username}/${post.slug}?secret=${process.env.NEXT_PUBLIC_MY_SECRET_TOKEN}`);
+        const msg = await res.json();
+        console.log(msg);
+      }
+      setRevalidating(false);
       router.push(`/${post.username}/${post.slug}`);
     } catch (err) {
       toast.error('Something went wrong...');

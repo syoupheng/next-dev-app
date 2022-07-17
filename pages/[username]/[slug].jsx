@@ -8,7 +8,7 @@ import MetaTags from '../../components/shared/seo/MetaTags';
 export const getStaticPaths = async () => {
   const q = query(
     collectionGroup(getFirestore(), 'posts'),
-    limit(20)
+    limit(10)
   )
   const snapshot = await getDocs(q);
 
