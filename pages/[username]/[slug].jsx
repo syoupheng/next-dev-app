@@ -36,8 +36,8 @@ export const getStaticProps = async ({ params }) => {
     post = postToJSON(await getDoc(postRef) );
   }
 
-  if (!post) {
-    return { notFound: true }
+  if (!post || post.createdAt === 0) {
+    return { notFound: true };
   }
 
   return {
