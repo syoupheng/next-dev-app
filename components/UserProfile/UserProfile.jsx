@@ -4,7 +4,12 @@ const UserProfile = ({ user }) => {
   return (
     <div className="mb-4">
       <div className="w-fit mx-auto">
-        <Image src={"/hacker.png"} width="170px" height="170px" />
+        <Image
+          alt="Profile picture"
+          src={"/hacker.png"}
+          width="170px"
+          height="170px"
+        />
       </div>
       <p className="text-center mt-2">
         <i>@{user.username}</i>

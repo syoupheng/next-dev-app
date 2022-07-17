@@ -49,6 +49,7 @@ const Navbar = () => {
                   className="rounded-full"
                   width="40px"
                   height="40px"
+                  alt="Profile picture"
                 />
               </a>
             </Link>

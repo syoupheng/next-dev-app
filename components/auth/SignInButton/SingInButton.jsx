@@ -1,4 +1,4 @@
-import { signInAnonymously, signInWithPopup } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 import { auth, googleAuthProvider } from '../../../utils/firebase';
 import Image from "next/image";
 
@@ -18,6 +18,7 @@ const SignInButton = () => {
           width="30px"
           height="30px"
           src={"/google.png"}
+          alt="Google logo"
         />
         <span className='ml-2'>Sign in with Google</span>
       </button>

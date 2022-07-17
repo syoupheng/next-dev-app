@@ -15,6 +15,7 @@ const PostContent = ({ post }) => {
               width="30px"
               height="30px"
               src={"/hacker.png"}
+              alt="Profile picture"
             />
             <span className='ml-2'>
               <p className="font-bold text-sm group-hover:text-indigo-800">By @{post.username}</p>

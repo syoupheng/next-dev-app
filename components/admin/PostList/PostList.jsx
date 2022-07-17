@@ -4,14 +4,16 @@ import { auth } from "../../../utils/firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
 
 const PostList = () => {
-  let posts;
+  let ref;
+  let postQuery;
   if (auth.currentUser) {
-    const ref = collection(getFirestore(), "users", auth.currentUser?.uid, "posts");
-    const postQuery = query(ref, orderBy("createdAt"));
-    const [querySnapshot] = useCollection(postQuery);
-
-    posts = querySnapshot?.docs.map((doc) => doc.data());
+    ref = collection(getFirestore(), "users", auth.currentUser?.uid, "posts");
+    postQuery = query(ref, orderBy("createdAt"));
   }
+
+  const [querySnapshot] = useCollection(postQuery);
+
+  const posts = querySnapshot?.docs.map((doc) => doc.data());
 
   return (
     <>

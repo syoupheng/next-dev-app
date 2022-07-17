@@ -13,6 +13,7 @@ const PostItem = ({ post, admin = false }) => {
             width="30px"
             height="30px"
             src={"/hacker.png"}
+            alt="Profile picture"
           />
           <span className="ml-2">By @{post.username}</span>
         </a>

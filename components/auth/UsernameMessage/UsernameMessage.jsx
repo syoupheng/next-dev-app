@@ -3,11 +3,11 @@ const UsernameMessage = ({ username, isValid, loading }) => {
     return <p className="text-gray-800">Checking...</p>;
   } else if (isValid) {
     return (
-      <div class="alert alert-success shadow-lg">
+      <div className="alert alert-success shadow-lg">
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="stroke-current flex-shrink-0 h-6 w-6"
+            className="stroke-current flex-shrink-0 h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
           >
@@ -24,11 +24,11 @@ const UsernameMessage = ({ username, isValid, loading }) => {
     );
   } else if (username && !isValid) {
     return (
-      <div class="alert alert-error shadow-lg">
+      <div className="alert alert-error shadow-lg">
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="stroke-current flex-shrink-0 h-6 w-6"
+            className="stroke-current flex-shrink-0 h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
           >
