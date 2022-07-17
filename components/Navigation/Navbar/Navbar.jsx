@@ -34,6 +34,9 @@ const Navbar = () => {
         </div>
         {username && (
           <div className="flex items-center">
+            <Link href="/home-isr">
+              <button className="mr-2 btn btn-outline">Home ISR</button>
+            </Link>
             <button onClick={() => signOut(auth)} className="btn mr-3">
               Sign Out
             </button>
@@ -55,16 +58,20 @@ const Navbar = () => {
             </Link>
           </div>
         )}
-
-        {!username && (
-          <Link href="/enter">
-            <a>
-              <button className="btn bg-transparent text-gray-600 border-0 normal-case font-light text-base hover:text-indigo-500 hover:bg-indigo-100 hover:underline">
-                Login
-              </button>
-            </a>
-          </Link>
-        )}
+        <div>
+          {!username && (
+            <div>
+              <Link href="/home-isr">
+                <button className="mr-2 btn btn-outline">Home ISR</button>
+              </Link>
+              <Link href="/enter">
+                <button className="btn bg-transparent text-gray-600 border-0 normal-case font-light text-base hover:text-indigo-500 hover:bg-indigo-100 hover:underline">
+                  Login
+                </button>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </nav>
   );
