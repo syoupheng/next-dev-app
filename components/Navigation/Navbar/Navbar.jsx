@@ -17,7 +17,7 @@ const Navbar = () => {
           <Link href="/">
             <a className="h-12 mr-6">
               <Image
-                src={BrandLogo}
+                src={"/dev-ecosystem.svg"}
                 alt="Dev unofficial logo"
                 width={50}
                 height={50}
